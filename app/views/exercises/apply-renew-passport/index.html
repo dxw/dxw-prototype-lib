@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% set bodyClasses = "exercise-apply-renew-passport" %}
+
+{% block pageTitle %}
+  Exercise: reproducing the homepage of Apply online for a UK passport – {{ serviceName }}
+{% endblock %}
+
+{% block beforeContent %}
+  <a class="govuk-back-link" href="javascript:window.history.back()">Back</a>
+{% endblock %}
+
+{% block content %}
+
+  <div class="govuk-grid-row">
+    <div class="govuk-grid-column-two-thirds">
+
+      <h1 class="govuk-heading-xl">
+        Exercise: reproducing the homepage of Apply online for a UK passport
+      </h1>
+
+      <p class="govuk-body">Please reproduce <a class="govuk-link" href="https://www.gov.uk/apply-renew-passport">the homepage of Apply online for a UK passport</a>. Try to upload your page and attach your link to the last section of this page. Remember to create a branch off the <code>main</code>. When you are ready to publish it, you can create a pull request and ask another designer to do the code review for you.</p>
+
+      <p class="govuk-body"><img class="exercise-apply-renew-passport__thumbnail" src="/public/images/exercises/apply-renew-passport/thumbnail-passport.png" alt="Page thumbnail"></p>
+
+      <h2 class="govuk-heading-m">General rules</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Use styles and components from <a href="https://design-system.service.gov.uk">GOV.UK Design System</a>.
+        </li>
+        <li>
+          No need to reproduce the header and footer.
+        </li>
+        <li>
+          No need to make it exactly the same.
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Techniques you may apply</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Use of Layout from Design System
+        </li>
+        <li>
+          Use of Typography from Design System
+        </li>
+        <li>
+          GIT commands
+        </li>
+        <li>
+          Pull request and code review
+        </li>
+      </ul>
+
+      <h2 class="govuk-heading-m">Submissions</h2>
+
+      <ul class="govuk-list govuk-list--bullet">
+        <li>
+          Ming
+        </li>
+        <li>
+          Israt
+        </li>
+      </ul>
+
+    </div>
+  </div>
+
+{% endblock %}

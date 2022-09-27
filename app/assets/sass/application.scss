@@ -1,1 +1,16 @@
-// Add extra styles here
+// Add your specific styles here. Ideally folders so that it won't affect others
+
+@import "exercises/apply-renew-passport/index";
+//@import "exercises/";
+//@import "examples/";
+
+
+// Add general styles for this website here
+
+code {
+    font-family: monospace,monospace;
+    font-size: 1em;
+    padding: 0 5px;
+    color: govuk-colour("red");
+    background-color: govuk-colour("light-grey");
+}
