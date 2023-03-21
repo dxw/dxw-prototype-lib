@@ -1,6 +1,139 @@
-{% set bodyClasses = "exercise-apply-renew-passport-alex" %}
-
 {% extends "layout.html" %}
 
-{% from "govuk/components/header/macro.njk" import govukHeader %}
+{% set bodyClasses = "exercise-apply-renew-passport-alex" %}
+
+<!-- Header -->
+{% block header %}
+    {{ govukHeader({
+        homepageUrl: "#"
+    }) }}
+{% endblock %}
+
+<!-- Main -->
+{% block main %}
+
+<div class="govuk-width-container">    
+  
+  <!-- beforeContent -->
+  {% block beforeContent %}
+      {{ govukBreadcrumbs({
+          items: [
+          {
+              text: "Home",
+              href: "#"
+          },
+          {
+              text: "Passports, travel and living abroad",
+              href: "#"
+          },
+          {
+              text: "Passports",
+              href: "#"
+          }
+          ]
+      }) }}
+  {% endblock %}
+
+  <main class="govuk-main-wrapper">
+
+    <!-- Content -->
+    {% block content %}
+    
+        <div class="govuk-grid-row">
+
+          <div class="govuk-grid-column-two-thirds">
+
+            <h1 class="govuk-heading-xl">Apply online for a UK passport</h1>
+
+          </div>
+
+        </div>
+
+        <div class="govuk-grid-row">
+
+          <!-- Two thirds -->
+          <div class="govuk-grid-column-two-thirds">
+
+            <p class="govuk-body">Use this service to apply for, renew, replace or update your passport and pay for it online.</p>
+
+            <p class="govuk-body">This service is also available <a href="#">in Welsh (Cymraeg)</a>.</p>
+
+            {{ govukInsetText({
+              text: "If your passport is burgundy or has ‘European Union’ on the cover, you can continue to use it until it expires."
+            }) }}
+
+            <h2 class="govuk-heading-m">How long it takes</h2>
+
+            <p class="govuk-body"><a href="#">Check how long it will take to get a passport</a> before you apply.</p>
+
+            <p class="govuk-body">If you need a passport urgently, you can <a href="#">find out more about the Online Premium or 1 week Fast Track services</a>.</p>
+
+            <p class="govuk-body">Do not book travel until you have a valid passport - your new passport will not have the same number as your old one.</p>
+
+            <h2 class="govuk-heading-m">Before you start</h2>
+
+            <p class="govuk-body">You’ll need a debit or credit card to use this service.</p>
+
+            <p class="govuk-body"><a href="#">It’s £10.50 cheaper</a> to apply for a passport online than by post.</p>
+
+            {{ govukButton({
+              text: "Start now",
+              href: "#",
+              isStartButton: true
+            }) }}
+
+            <h2 class="govuk-heading-m">Other ways to apply</h2>
+
+            <p class="govuk-body">You can pick up passport application forms from your <a href="#">local Post Office</a> and apply by post, or use the <a href="#">Post Office Check and Send service</a>.</p>
+
+            <p class="govuk-body">It takes longer to apply by post than online.</p>
+
+            <div class="margin-top--l border--top border--blue">
+
+              <h3 class="govuk-heading-s">Explore the topic</h3>
+
+              <a href="#" class="govuk-link govuk-!-font-weight-bold">Passports</a>
+
+            </div>
+
+          </div>
+
+          <!-- One third -->
+          <div class="govuk-grid-column-one-third">
+
+            <div class="border--top border--blue">
+
+              <h3 class="govuk-heading-s">Related content</h3>
+              
+              <ul class="govuk-list govuk-list--spaced">
+                <li>
+                  <a class="govuk-link" href="#">Passport fees</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Get a passport photo</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Change your name or personal details on your passport</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Getting your first adult passport</a>
+                </li>
+                <li>
+                  <a class="govuk-link" href="#">Get a passport for your child</a>
+                </li>
+              </ul>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+    {% endblock %}
+
+  </main>
+</div>
+{% endblock %}
 
