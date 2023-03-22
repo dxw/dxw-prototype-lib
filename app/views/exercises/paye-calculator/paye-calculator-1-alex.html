@@ -87,35 +87,33 @@
     }]
   }) }}
 
-    <!-- Breadcrumbs -->
-    {{ govukBreadcrumbs({
-      items: [
-        {
-          text: "Account home",
-          href: "#"
-        },
-        {
-          text: "For employees and individuals",
-          href: "#"
-        },
-        {
-          text: "Tax calculators",
-          href: "#"
-        }
-      ]
-    }) }}
+  <!-- Breadcrumbs -->
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Account home",
+        href: "#"
+      },
+      {
+        text: "For employees and individuals",
+        href: "#"
+      },
+      {
+        text: "Tax calculators",
+        href: "#"
+      }
+    ]
+  }) }}
 
 {% endblock %}
 
 <!-- Content area -->
 {% block content %}
 
-
-
   <div class="govuk-grid-row">
 
+    <!-- Heading -->
     <div class="govuk-grid-column-two-thirds">
-      <!-- Heading -->
       <h1 class="govuk-heading-l">PAYE Tax Calculator</h1>
     </div>
 
@@ -124,17 +122,17 @@
   <div class="govuk-grid-row">
 
     <div class="govuk-grid-column-two-thirds">
-      <h2 class="govuk-heading-l">What to expect</h2>
+      <h2 class="govuk-heading-m">What to expect</h2>
       <p class="govuk-body">Use this service to estimate how much Income Tax and National Insurance you should pay for the current tax year (6 April 2022 to 5 April 2023). </p>
       <p class="govuk-body">You may be able to <a href="#">claim a refund</a> if you’ve paid too much tax.</p>
 
       {{ govukButton({
         text: "Start now",
-        href: "#",
+        href: "/exercises/paye-calculator/paye-calculator-2-alex.html",
         isStartButton: true
       }) }}
 
-      <h2 class="govuk-heading-l">Before you start</h2>
+      <h2 class="govuk-heading-m">Before you start</h2>
       <p class="govuk-body">You cannot get an estimate online if:</p>
       <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
         <li>you’re not a pay as you earn (PAYE) taxpayer</li>
@@ -189,8 +187,5 @@
     </div>
 
   </div>
-
-
-
 
 {% endblock %}

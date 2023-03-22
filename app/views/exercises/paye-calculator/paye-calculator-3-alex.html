@@ -1,0 +1,150 @@
+{% extends "layout.html" %}
+{% extends "hmrc/layouts/account-header.html" %}
+
+{% set bodyClasses = "exercise-paye-calculator-alex" %}
+
+{% from "hmrc/components/banner/macro.njk" import hmrcBanner %}
+
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+<!-- Header -->
+{% block header %}
+
+  <!-- GOV.UK Banner -->
+  {{ govukHeader({
+
+    homepageUrl: "#"
+
+  }) }}
+
+  <div class="govuk-width-container">
+
+      <!-- HMRC logo -->
+      {{ hmrcBanner({
+          
+      }) }}
+
+  </div>
+
+  <!-- HMRC Account Header -->
+  {%
+    set hmrcAccountHeader = {
+      language: "en",
+      serviceName: "PAYE Tax calculator",
+      serviceUrl: "/",
+      homepageUrl: "/",
+      containerClasses: "govuk-width-container",
+      classes: "",
+      languageToggle: {
+        en: {
+          href: "/hmrc-design-patterns/account-header/example/"
+        },
+        cy: {
+          href: "/hmrc-design-patterns/account-header/example-welsh/"
+        }
+      },
+      accountHome: {
+        href: "#home",
+        active: true
+      },
+      messages: {
+        href: "#messages",
+        messageCount: "30"
+      },
+      checkProgress: {
+        href: "#check-progress"
+      },
+      paperlessSettings: {
+        href: "#paperless-settings"
+      },
+      personalDetails: {
+        href: "#personal-details"
+      },
+      signOut: {
+        href: "#sign-out"
+      }
+    }
+  %}
+
+{% endblock %}
+
+<!-- Before content -->
+{% block beforeContent %}
+
+  <!-- Sub navigation -->
+  {{ mojSubNavigation({
+    label: 'Sub navigation',
+    items: [{
+      text: 'For employees and individuals',
+      href: '#1',
+      active: true
+    }, {
+      text: 'For employers',
+      href: '#2'
+    }, {
+      text: 'For businesses and corporations',
+      href: '#3'
+    }]
+  }) }}
+
+    <!-- Backlink -->
+    {{ govukBackLink({
+      text: "Back",
+      href: "#"
+    }) }}
+
+{% endblock %}
+
+<!-- Content area -->
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <!-- Heading -->
+    <div class="govuk-grid-column-two-thirds">
+
+      <!-- DOB -->
+      {% from "govuk/components/date-input/macro.njk" import govukDateInput %}
+      
+      {{ govukDateInput({
+        id: "date-of-birth",
+        namePrefix: "date-of-birth",
+        fieldset: {
+          legend: {
+            text: "What is your date of birth?",
+            isPageHeading: true,
+            classes: "govuk-fieldset__legend--l"
+          }
+        },
+        hint: {
+          text: "For example, 31 3 1980. If you prefer not to say, continue without entering any information."
+        },
+        items: [
+          {
+            name: "day",
+            classes: "govuk-input--width-2",
+            autocomplete: "bday-day"
+          },
+          {
+            name: "month",
+            classes: "govuk-input--width-2",
+            autocomplete: "bday-month"
+          },
+          {
+            name: "year",
+            classes: "govuk-input--width-4",
+            autocomplete: "bday-year"
+          }
+        ]
+      }) }}
+      
+      {{ govukButton({
+        text: "Continue"
+      }) }}
+
+    </div>
+
+  </div>
+
+
+{% endblock %}
