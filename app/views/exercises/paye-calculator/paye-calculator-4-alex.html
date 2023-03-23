@@ -7,6 +7,8 @@
 
 {%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
 
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
 <!-- Header -->
 {% block header %}
 
@@ -90,7 +92,7 @@
     <!-- Backlink -->
     {{ govukBackLink({
       text: "Back",
-      href: "/exercises/paye-calculator/paye-calculator-1-alex"
+      href: "/exercises/paye-calculator/paye-calculator-3-alex"
     }) }}
 
 {% endblock %}
@@ -103,86 +105,38 @@
     <!-- Heading -->
     <div class="govuk-grid-column-two-thirds">
 
-      <form class="form" action="/exercises/paye-calculator/paye-calculator-3-alex" method="post">
+      <form class="form" action="/exercises/paye-calculator/paye-calculator-5-alex" method="post">
 
-        {% call govukFieldset({
-          legend: {
-            text: "How much are you paid?",
-            classes: "govuk-fieldset__legend--xl",
-            isPageHeading: true
-          }
-        }) %}
-
-        <!-- Amount paid -->
+        <!-- Tax code -->
         {{ govukInput({
-          id: "amount-paid",
-          name: "amount-paid",
-          value: data['amount-paid'],
           label: {
-            text: "Amount paid",
-            classes: "govuk-label--m",
-            isPageHeading: false
+            text: "What is your tax code? (Optional)",
+            classes: "govuk-label--xl",
+            isPageHeading: true
           },
-          prefix: {
-            text: "£"
-          },
+          classes: "govuk-input--width-10",
+          id: "tax-code",
+          name: "tax-code",
+          value: data['tax-code'],
           hint: {
-            text: "For example, 1500 or 125.50"
-          },
-          classes: "govuk-input--width-5",
-          spellcheck: false
+            text: "If you do not enter a tax code we will use the default tax code 1257L to calculate your take-home pay."
+          }
         }) }}
 
-        <!-- Frequency of payment -->
-        {{ govukRadios({
-          name: "payment-frequency",
-          value: data['payment-frequency'],
-          fieldset: {
-            legend: {
-              text: "How often are you paid?",
-              isPageHeading: false,
-              classes: "govuk-fieldset__legend--m"
-            }
-          },
-          items: [
-            {
-              value: "Hourly",
-              text: "Hourly"
-            },
-            {
-              value: "Daily",
-              text: "Daily"
-            },
-            {
-              value: "Weekly",
-              text: "Weekly"
-            },
-            {
-              value: "Fortnightly",
-              text: "Fortnightly"
-            },
-            {
-              value: "Monthly",
-              text: "Monthly"
-            },
-            {
-              value: "Annualy",
-              text: "Annualy"
-            }
-          ]
+        <!-- More details -->
+        {{ govukDetails({
+          summaryText: "Find your current tax code",
+          html: 'You can usually find your tax code on a <a href="#">recent payslip or P45 (opens in a new tab)</a>.'
         }) }}
-
+        
         {{ govukButton({
           text: "Continue"
         }) }}
-
-        {% endcall %}
 
       </form>
 
     </div>
 
   </div>
-
 
 {% endblock %}

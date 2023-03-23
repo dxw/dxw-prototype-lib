@@ -1,0 +1,440 @@
+{% extends "layout.html" %}
+{% extends "hmrc/layouts/account-header.html" %}
+
+{% set bodyClasses = "exercise-paye-calculator-alex" %}
+
+{% from "hmrc/components/banner/macro.njk" import hmrcBanner %}
+
+{% from "moj/components/sub-navigation/macro.njk" import mojSubNavigation %}
+
+{% from "govuk/components/tabs/macro.njk" import govukTabs %}
+{% from "govuk/components/table/macro.njk" import govukTable %}
+{% from "govuk/components/panel/macro.njk" import govukPanel %}
+
+<!-- Header -->
+{% block header %}
+
+  <!-- GOV.UK Banner -->
+  {{ govukHeader({
+
+    homepageUrl: "#"
+
+  }) }}
+
+  <div class="govuk-width-container">
+
+      <!-- HMRC logo -->
+      {{ hmrcBanner({
+          
+      }) }}
+
+  </div>
+
+  <!-- HMRC Account Header -->
+  {%
+    set hmrcAccountHeader = {
+      language: "en",
+      serviceName: "PAYE Tax calculator",
+      serviceUrl: "/",
+      homepageUrl: "/",
+      containerClasses: "govuk-width-container",
+      classes: "",
+      languageToggle: {
+        en: {
+          href: "/hmrc-design-patterns/account-header/example/"
+        },
+        cy: {
+          href: "/hmrc-design-patterns/account-header/example-welsh/"
+        }
+      },
+      accountHome: {
+        href: "#home",
+        active: true
+      },
+      messages: {
+        href: "#messages",
+        messageCount: "30"
+      },
+      checkProgress: {
+        href: "#check-progress"
+      },
+      paperlessSettings: {
+        href: "#paperless-settings"
+      },
+      personalDetails: {
+        href: "#personal-details"
+      },
+      signOut: {
+        href: "#sign-out"
+      }
+    }
+  %}
+
+{% endblock %}
+
+<!-- Before content -->
+{% block beforeContent %}
+
+  <!-- Sub navigation -->
+  {{ mojSubNavigation({
+    label: 'Sub navigation',
+    items: [{
+      text: 'For employees and individuals',
+      href: '#1',
+      active: true
+    }, {
+      text: 'For employers',
+      href: '#2'
+    }, {
+      text: 'For businesses and corporations',
+      href: '#3'
+    }]
+  }) }}
+
+  <!-- Breadcrumbs -->
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Account home",
+        href: "#"
+      },
+      {
+        text: "For employees and individuals",
+        href: "#"
+      },
+      {
+        text: "Tax calculators",
+        href: "#"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+<!-- Content area -->
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <!-- Heading -->
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">Your estimated take-home pay</h1>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      
+      <!-- Yearly -->
+      {% set yearlyHtml %}
+
+        {{ govukPanel({
+          titleText: "Your estimated take-home pay for 2023 is",
+          html: "<strong>£24,000</strong>",
+          headingLevel: 2
+        }) }}
+
+        {{ govukInsetText({
+          text: "Your take-home pay for the 2023 to 2024 tax year will be lower than the estimate shown. The difference will be less than 1.4% This is because of the changes to National Insurance in July and November 2022."
+        }) }}
+
+        {{ govukTable({
+          caption: "Based on your answers we estimate your yearly take-home pay to be:",
+          captionClasses: "govuk-table__caption--m",
+          rows: [
+            [
+              {
+                text: "Income tax"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "National tax"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Total tax to pay"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukTable({
+          caption: "How we calculated your yearly results:",
+          captionClasses: "govuk-table__caption--m",
+          rows: [
+            [
+              {
+                text: "Your pay"
+              },
+              {
+                text: "£3535",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Your tax free allowance is"
+              },
+              {
+                text: "£43646",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Your taxable pay is"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ]
+          ]
+        }) }}
+
+      {% endset -%}
+      
+      <!-- Monthly -->
+      {% set monthlyHtml %}
+
+        {{ govukPanel({
+          titleText: "Your estimated take-home pay for 2023 is",
+          html: "<strong>£123 a month</strong>",
+          headingLevel: 2
+        }) }}
+
+        {{ govukInsetText({
+          text: "Your take-home pay for any month from 2022, paid before 6 November 2022, tax year will be lower than the estimate shown. The difference will be less than 2.84% This is because of the changes to National Insurance in July and November 2022."
+        }) }}
+
+        {{ govukTable({
+          caption: "Based on your answers we estimate your monthly take-home pay to be:",
+          captionClasses: "govuk-table__caption--m",
+          rows: [
+            [
+              {
+                text: "Income tax"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "National tax"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Total tax to pay"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukTable({
+          caption: "How we calculated your monthly results:",
+          captionClasses: "govuk-table__caption--m",
+          rows: [
+            [
+              {
+                text: "Your pay"
+              },
+              {
+                text: "£3535",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Your tax free allowance is"
+              },
+              {
+                text: "£43646",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Your taxable pay is"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ]
+          ]
+        }) }}
+
+      {% endset -%}
+
+      <!-- Weekly -->
+      {% set weeklyHtml %}
+
+        {{ govukPanel({
+          titleText: "Your estimated take-home pay for 2023 is",
+          html: "<strong>£12.30 a week</strong>",
+          headingLevel: 2
+        }) }}
+
+        {{ govukInsetText({
+          text: "Your take-home pay for any week from 6 April 2022, paid before 6 November 2022, tax year will be lower than the estimate shown. The difference will be less than 2.84% This is because of the changes to National Insurance in July and November 2022."
+        }) }}
+
+        {{ govukTable({
+          caption: "Based on your answers we estimate your weekly take-home pay to be:",
+          captionClasses: "govuk-table__caption--m",
+          rows: [
+            [
+              {
+                text: "Income tax"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "National tax"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Total tax to pay"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ]
+          ]
+        }) }}
+
+        {{ govukTable({
+          caption: "How we calculated your weekly results:",
+          captionClasses: "govuk-table__caption--m",
+          rows: [
+            [
+              {
+                text: "Your pay"
+              },
+              {
+                text: "£3535",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Your tax free allowance is"
+              },
+              {
+                text: "£43646",
+                classes: 'govuk-!-width-one-half'
+              }
+            ],
+            [
+              {
+                text: "Your taxable pay is"
+              },
+              {
+                text: "£0",
+                classes: 'govuk-!-width-one-half'
+              }
+            ]
+          ]
+        }) }}
+
+      {% endset -%}
+      
+      
+      {{ govukTabs({
+        items: [
+          {
+            label: "Yearly",
+            id: "past-year",
+            panel: {
+              html: yearlyHtml
+            }
+          },
+          {
+            label: "Monthly",
+            id: "past-month",
+            panel: {
+              html: monthlyHtml
+            }
+          },
+          {
+            label: "Weekly",
+            id: "past-week",
+            panel: {
+              html: weeklyHtml
+            }
+          }
+        ]
+      }) }}
+
+      <p class="govuk-body">We have estimated your National Insurance contribution based on the most common <a href="#" target="_blank">Class 1 options: Categories A, H and M (opens in a new tab)</a>. HMRC will not keep a record of your data for security reasons.</p>
+
+      {{ govukButton({
+        text: "Start again",
+        href: "/exercises/paye-calculator/paye-calculator-1-alex.html"
+      }) }}
+
+    </div>
+
+    <!-- One third -->
+    <div class="govuk-grid-column-one-third">
+
+      <div class="border--top border--blue">
+
+        <h3 class="govuk-heading-s">What to do next</h3>
+        
+        <ul class="govuk-list govuk-list--spaced">
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#">Check how much Income Tax you paid last year</a>
+          </li>
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#">Check if you have paid the right amount of tax</a>
+          </li>
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#">Claim a tax refund</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

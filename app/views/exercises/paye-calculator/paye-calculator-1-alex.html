@@ -114,7 +114,7 @@
 
     <!-- Heading -->
     <div class="govuk-grid-column-two-thirds">
-      <h1 class="govuk-heading-l">PAYE Tax Calculator</h1>
+      <h1 class="govuk-heading-xl">PAYE Tax Calculator</h1>
     </div>
 
   </div>
@@ -125,6 +125,10 @@
       <h2 class="govuk-heading-m">What to expect</h2>
       <p class="govuk-body">Use this service to estimate how much Income Tax and National Insurance you should pay for the current tax year (6 April 2022 to 5 April 2023). </p>
       <p class="govuk-body">You may be able to <a href="#">claim a refund</a> if you’ve paid too much tax.</p>
+
+      {{ govukInsetText({
+        text: "For the purposes of this prototype, questions are asked with the intention the calculator is only available to residents in England."
+      }) }}
 
       {{ govukButton({
         text: "Start now",
