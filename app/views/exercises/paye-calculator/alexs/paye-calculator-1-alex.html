@@ -1,0 +1,195 @@
+{% extends "layout.html" %}
+{% extends "hmrc/layouts/account-header.html" %}
+
+{% set bodyClasses = "exercise-paye-calculator-alex" %}
+
+{% from "hmrc/components/banner/macro.njk" import hmrcBanner %}
+
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+<!-- Header -->
+{% block header %}
+
+  <!-- GOV.UK Banner -->
+  {{ govukHeader({
+
+    homepageUrl: "#"
+
+  }) }}
+
+  <div class="govuk-width-container">
+
+      <!-- HMRC logo -->
+      {{ hmrcBanner({
+          
+      }) }}
+
+  </div>
+
+  <!-- HMRC Account Header -->
+  {%
+    set hmrcAccountHeader = {
+      language: "en",
+      serviceName: "PAYE Tax calculator",
+      serviceUrl: "/",
+      homepageUrl: "/",
+      containerClasses: "govuk-width-container",
+      classes: "",
+      languageToggle: {
+        en: {
+          href: "/hmrc-design-patterns/account-header/example/"
+        },
+        cy: {
+          href: "/hmrc-design-patterns/account-header/example-welsh/"
+        }
+      },
+      accountHome: {
+        href: "#home",
+        active: true
+      },
+      messages: {
+        href: "#messages",
+        messageCount: "30"
+      },
+      checkProgress: {
+        href: "#check-progress"
+      },
+      paperlessSettings: {
+        href: "#paperless-settings"
+      },
+      personalDetails: {
+        href: "#personal-details"
+      },
+      signOut: {
+        href: "#sign-out"
+      }
+    }
+  %}
+
+{% endblock %}
+
+<!-- Before content -->
+{% block beforeContent %}
+
+  <!-- Sub navigation -->
+  {{ mojSubNavigation({
+    label: 'Sub navigation',
+    items: [{
+      text: 'For employees and individuals',
+      href: '#1',
+      active: true
+    }, {
+      text: 'For employers',
+      href: '#2'
+    }, {
+      text: 'For businesses and corporations',
+      href: '#3'
+    }]
+  }) }}
+
+  <!-- Breadcrumbs -->
+  {{ govukBreadcrumbs({
+    items: [
+      {
+        text: "Account home",
+        href: "#"
+      },
+      {
+        text: "For employees and individuals",
+        href: "#"
+      },
+      {
+        text: "Tax calculators",
+        href: "#"
+      }
+    ]
+  }) }}
+
+{% endblock %}
+
+<!-- Content area -->
+{% block content %}
+
+  <div class="govuk-grid-row">
+
+    <!-- Heading -->
+    <div class="govuk-grid-column-two-thirds">
+      <h1 class="govuk-heading-xl">PAYE Tax Calculator</h1>
+    </div>
+
+  </div>
+
+  <div class="govuk-grid-row">
+
+    <div class="govuk-grid-column-two-thirds">
+      <h2 class="govuk-heading-m">What to expect</h2>
+      <p class="govuk-body">Use this service to estimate how much Income Tax and National Insurance you should pay for the current tax year (6 April 2022 to 5 April 2023). </p>
+      <p class="govuk-body">You may be able to <a href="#">claim a refund</a> if you’ve paid too much tax.</p>
+
+      {{ govukInsetText({
+        text: "For the purposes of this prototype, questions are asked with the intention the calculator is only available to residents in England."
+      }) }}
+
+      {{ govukButton({
+        text: "Start now",
+        href: "/exercises/paye-calculator/alexs/paye-calculator-2-alex.html",
+        isStartButton: true
+      }) }}
+
+      <h2 class="govuk-heading-m">Before you start</h2>
+      <p class="govuk-body">You cannot get an estimate online if:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li>you’re not a pay as you earn (PAYE) taxpayer</li>
+        <li>your only income is from self employment or <a href="#">state benefits</a>, such as State Pension</li>
+        <li>you contribute to a pension scheme through your employer</li>
+        <li>you’re repaying a <a href="#">student loan</a></li>
+      </ul>
+
+      {{ govukInsetText({
+        text: "If you have more than one job, use the calculator once for each job."
+      }) }}
+
+      <p class="govuk-body">There are different ways to:</p>
+      <ul class="govuk-list govuk-list--bullet govuk-list--spaced">
+        <li><a href="#">check your Income Tax payments for the current year</a></li>
+        <li><a href="#">check how much you paid last year (6 April 2021 to 5 April 2022)</a></li>
+        <li><a href="#">estimate how much you should have paid in a previous year</a></li>
+      </ul>
+      <p class="govuk-body">You can check you’ve paid the right tax by <a href="#">contacting HMRC</a> or by getting help from an <a href="#">accountant</a>.</p>
+
+      <div class="margin-top--l border--top border--blue">
+
+        <h3 class="govuk-heading-s">Explore the topic</h3>
+
+        <a href="#" class="govuk-link govuk-!-font-weight-bold">Income Tax</a>
+
+      </div>
+
+    </div>
+
+    <!-- One third -->
+    <div class="govuk-grid-column-one-third">
+
+      <div class="border--top border--blue">
+
+        <h3 class="govuk-heading-s">Related content</h3>
+        
+        <ul class="govuk-list govuk-list--spaced">
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#">How to claim a tax refund</a>
+          </li>
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#">Income Tax: introduction</a>
+          </li>
+          <li class="govuk-body-s">
+            <a class="govuk-link" href="#">Tax codes</a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+
+{% endblock %}

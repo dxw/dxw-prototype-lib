@@ -1,0 +1,202 @@
+{% extends "layout.html" %}
+{% extends "hmrc/layouts/account-header.html" %}
+
+{% set bodyClasses = "exercise-paye-calculator-alex" %}
+
+{% from "hmrc/components/banner/macro.njk" import hmrcBanner %}
+
+{%- from "moj/components/sub-navigation/macro.njk" import mojSubNavigation -%}
+
+{% from "govuk/components/details/macro.njk" import govukDetails %}
+
+<!-- Header -->
+{% block header %}
+
+  <!-- GOV.UK Banner -->
+  {{ govukHeader({
+
+    homepageUrl: "#"
+
+  }) }}
+
+  <div class="govuk-width-container">
+
+      <!-- HMRC logo -->
+      {{ hmrcBanner({
+          
+      }) }}
+
+  </div>
+
+  <!-- HMRC Account Header -->
+  {%
+    set hmrcAccountHeader = {
+      language: "en",
+      serviceName: "PAYE Tax calculator",
+      serviceUrl: "/",
+      homepageUrl: "/",
+      containerClasses: "govuk-width-container",
+      classes: "",
+      languageToggle: {
+        en: {
+          href: "/hmrc-design-patterns/account-header/example/"
+        },
+        cy: {
+          href: "/hmrc-design-patterns/account-header/example-welsh/"
+        }
+      },
+      accountHome: {
+        href: "#home",
+        active: true
+      },
+      messages: {
+        href: "#messages",
+        messageCount: "30"
+      },
+      checkProgress: {
+        href: "#check-progress"
+      },
+      paperlessSettings: {
+        href: "#paperless-settings"
+      },
+      personalDetails: {
+        href: "#personal-details"
+      },
+      signOut: {
+        href: "#sign-out"
+      }
+    }
+  %}
+
+{% endblock %}
+
+<!-- Before content -->
+{% block beforeContent %}
+
+  <!-- Sub navigation -->
+  {{ mojSubNavigation({
+    label: 'Sub navigation',
+    items: [{
+      text: 'For employees and individuals',
+      href: '#1',
+      active: true
+    }, {
+      text: 'For employers',
+      href: '#2'
+    }, {
+      text: 'For businesses and corporations',
+      href: '#3'
+    }]
+  }) }}
+
+    <!-- Backlink -->
+    {{ govukBackLink({
+      text: "Back",
+      href: "/exercises/paye-calculator/alexs/paye-calculator-4-alex"
+    }) }}
+
+{% endblock %}
+
+<!-- Content area -->
+{% block content %}
+
+<div class="govuk-grid-row">
+  <div class="govuk-grid-column-two-thirds-from-desktop">
+
+    <h1 class="govuk-heading-xl">Check your answers</h1>
+
+    <!-- <p>{{ data['amount-paid'] }}</p>
+    <p>{{ data['payment-frequency'] }}</p>
+    <p>{{ data['amount-paid'] }} {{ data['payment-frequency'] }} </p>
+    <p>{{ data['date-of-birth-day'] }} {{ data['date-of-birth-month'] }} {{ data['date-of-birth-year'] }}</p> -->
+
+
+    {{ govukSummaryList({
+      classes: 'govuk-!-margin-bottom-9',
+      rows: [
+        {
+          key: {
+            text: "How much are you paid?"            
+          },
+          value: {
+            text: data['amount-paid']
+          },
+          actions: {
+            items: [
+              {
+                href: "/exercises/paye-calculator/alexs/paye-calculator-2-alex",
+                text: "Change",
+                visuallyHiddenText: "amount"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "How often are you paid?"            
+          },
+          value: {
+            text: data['payment-frequency']
+          },
+          actions: {
+            items: [
+              {
+                href: "/exercises/paye-calculator/alexs/paye-calculator-2-alex",
+                text: "Change",
+                visuallyHiddenText: "frequency"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "Date of birth"            
+          },
+          value: {
+            text: data['date-of-birth-day']
+          },
+          actions: {
+            items: [
+              {
+                href: "/exercises/paye-calculator/alexs/paye-calculator-3-alex",
+                text: "Change",
+                visuallyHiddenText: "birthday"
+              }
+            ]
+          }
+        },
+        {
+          key: {
+            text: "What is your current tax code?"            
+          },
+          value: {
+            text: data['tax-code']
+          },
+          actions: {
+            items: [
+              {
+                href: "/exercises/paye-calculator/alexs/paye-calculator-4-alex",
+                text: "Change",
+                visuallyHiddenText: "tax code"
+              }
+            ]
+          }
+        }
+        
+      ]
+    }) }}
+
+    <form action="/exercises/paye-calculator/alexs/paye-calculator-6-alex" method="post" novalidate>
+
+      <input type="hidden" name="answers-checked" value="true">
+
+      {{ govukButton({
+        text: "Get results"
+      }) }}
+
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
