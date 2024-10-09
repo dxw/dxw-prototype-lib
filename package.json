@@ -34,7 +34,7 @@
     "govuk-frontend": "4.8.0",
     "gray-matter": "4.0.3",
     "hmrc-frontend": "^5.27.0",
-    "inquirer": "8.2.5",
+    "inquirer": "8.2.6",
     "lodash": "4.17.21",
     "marked": "4.3.0",
     "nodemon": "2.0.22",
