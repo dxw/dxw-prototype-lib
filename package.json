@@ -37,7 +37,7 @@
     "inquirer": "8.2.5",
     "lodash": "4.17.21",
     "marked": "4.3.0",
-    "nodemon": "2.0.20",
+    "nodemon": "2.0.22",
     "notifications-node-client": "5.2.1",
     "nunjucks": "3.2.4",
     "portscanner": "2.2.0",
