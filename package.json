@@ -27,7 +27,7 @@
     "express": "4.20.0",
     "express-session": "1.17.3",
     "fancy-log": "2.0.0",
-    "fs-extra": "10.1.0",
+    "fs-extra": "11.2.0",
     "govuk_frontend_toolkit": "9.0.1",
     "govuk_template_jinja": "0.26.0",
     "govuk-elements-sass": "3.1.3",
