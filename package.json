@@ -20,7 +20,7 @@
     "browser-sync": "3.0.3",
     "chokidar": "3.6.0",
     "client-sessions": "0.8.0",
-    "cookie-parser": "1.4.6",
+    "cookie-parser": "1.4.7",
     "cross-spawn": "7.0.3",
     "del": "6.1.1",
     "dotenv": "16.4.5",
