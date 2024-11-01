@@ -13,5 +13,9 @@
     "hmrc-frontend": "^6.0.0",
     "jquery": "3.7.1",
     "notifications-node-client": "5.2.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.8.6"
   }
 }
