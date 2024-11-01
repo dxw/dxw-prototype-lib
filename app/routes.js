@@ -1,11 +1,16 @@
-const express = require('express')
-const router = express.Router()
+//
+// For guidance on how to create routes see:
+// https://prototype-kit.service.gov.uk/docs/create-routes
+//
 
-// Add your routes here - above the module.exports line
+const govukPrototypeKit = require('govuk-prototype-kit')
+const router = govukPrototypeKit.requests.setupRouter()
+
+// Add your routes here
+
 
 // Routes for specific projects
 require('./routes/examples/routes.js')(router);
 require('./routes/exercises/routes.js')(router);
-
 
 module.exports = router
