@@ -2,7 +2,8 @@
   "scripts": {
     "dev": "govuk-prototype-kit dev",
     "serve": "govuk-prototype-kit serve",
-    "start": "govuk-prototype-kit start"
+    "start": "govuk-prototype-kit start",
+    "test": "npx playwright test"
   },
   "name": "govuk-prototype-kit",
   "dependencies": {
@@ -13,5 +14,9 @@
     "hmrc-frontend": "^6.0.0",
     "jquery": "3.7.1",
     "notifications-node-client": "5.2.3"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.48.2",
+    "@types/node": "^22.9.0"
   }
 }
