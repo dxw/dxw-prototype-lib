@@ -16,7 +16,7 @@
     "notifications-node-client": "8.2.1"
   },
   "devDependencies": {
-    "@playwright/test": "^1.52.0",
-    "@types/node": "^22.16.0"
+    "@playwright/test": "1.52.0",
+    "@types/node": "22.16.0"
   }
 }
